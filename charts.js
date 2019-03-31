@@ -21,24 +21,24 @@ function makeGraphs(error, data) {
         .xAxisLabel("Town")
         .yAxis().ticks(4);
 
-    // var parseDate = d3.time.format("%d/%m/%Y").parse;
-    // month.forEach(function(d) {
-    //     d.month = parseDate(d.month);
-    // });
-    // var date_dim = ndx.dimension(dc.pluck('month'));
-    // var total_resale_price_per_year = date_dim.group().reduceSum(dc.pluck('resale_price'));
-    // var minDate = date_dim.bottom(1)[0].month;
-    // var maxDate = date_dim.top(1)[0].month;
-    // dc.lineChart("#line-graph")
-    //     .width(1000)
-    //     .height(300)
-    //     .margins({ top: 10, right: 50, bottom: 30, left: 50 })
-    //     .dimension(date_dim)
-    //     .group(total_resale_price_per_year)
-    //     .transitionDuration(500)
-    //     .x(d3.time.scale().domain([minDate, maxDate]))
-    //     .xAxisLabel("Year")
-    //     .yAxis().ticks(4);
+    var parseDate = d3.time.format("%Y-%m").parse;
+    data.result.records.forEach(function(d) {
+        d.month = parseDate(d.month);
+    });
+    var date_dim = ndx.dimension(dc.pluck('month'));
+    var total_resale_price_per_month = date_dim.group().reduceSum(dc.pluck('resale_price'));
+    var minDate = date_dim.bottom(1)[0].month;
+    var maxDate = date_dim.top(1)[0].month;
+    dc.lineChart("#line-graph")
+        .width(1000)
+        .height(300)
+        .margins({ top: 10, right: 10, bottom: 50, left: 80 })
+        .dimension(date_dim)
+        .group(total_resale_price_per_month)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .xAxisLabel("Month")
+        .yAxis().ticks(4);
     dc.renderAll();
 }
 
