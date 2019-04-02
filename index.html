@@ -25,31 +25,22 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-light bg-light sticky-top" style="border: 1px solid #D3D3D3">
-		<h1>Singapore Resale Flat Information</h1>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav">
-				<li class="nav-item d-flex flex-row-reverse">
-					<a class="nav-link" href="#pie-chart">Pie Chart</a>
-				</li>
-				<li class="nav-item d-flex flex-row-reverse">
-					<a class="nav-link" href="#line-graph">Line Graph</a>
-				</li>
-				<li class="nav-item d-flex flex-row-reverse">
-					<a class="nav-link" href="#bar-chart">Bar Chart</a>
-				</li>
-				<li class="nav-item d-flex flex-row-reverse">
-					<a class="nav-link" href="#scatter-plot">Scatter Plot</a>
-				</li>
+	<section class='container-fluid'>
+		<h1>Singapore HDB Resale Flat Information</h1>
+		<div class="dropdown float-right" data-spy="affix-top">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Statistics
+    <span class="caret"></span></button>
+			<ul class="dropdown-menu">
+				<li><a href="#pie-chart-name">Pie Chart</a></li>
+				<li><a href="#line-graph-name">Line Graph</a></li>
+				<li><a href="#bar-chart-name">Bar Chart</a></li>
+				<li><a href="#scatter-plot-name">Scatter Plot</a></li>
 			</ul>
 		</div>
-	</nav>
-	
+	</section>
+
 	<main>
-		<section class='container-fluid'>
+		<section class='container-fluid' id="pie-chart-name">
 			<div class="row">
 				<div class="col-xs-12">
 					<h3>Resale Volume ($) Per Flat Type</h3>
@@ -58,7 +49,7 @@
 			</div>
 		</section>
 
-		<section class='container-fluid'>
+		<section class='container-fluid' id="line-graph-name">
 			<div class="row">
 				<div class="col-xs-12">
 					<h3>Resale Volume ($) Per Month</h3>
@@ -67,7 +58,7 @@
 			</div>
 		</section>
 
-		<section class='container-fluid'>
+		<section class='container-fluid' id="bar-chart-name">
 			<div class="row">
 				<div class="col-xs-12">
 					<h3>Resale Volume ($) Per Town</h3>
@@ -76,7 +67,7 @@
 			</div>
 		</section>
 
-		<section class='container-fluid'>
+		<section class='container-fluid' id="scatter-plot-name">
 			<div class="row">
 				<div class="col-xs-12">
 					<h3>Resale Price ($) vs. Lease Commencement Date</h3>
