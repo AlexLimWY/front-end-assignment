@@ -1,6 +1,35 @@
-queue()
-    .defer(d3.json, "https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&limit=81960")
-    .await(makeGraphs);
+// we create a new function named getData and pass
+// it a callback function. When the queue() finished
+// retriving the data, it will trigger our callback function
+// (which is the second parameter of getData() )
+ function getData(callback)
+ {
+      queue()
+        .defer(d3.json, "https://data.gov.sg/api/action/datastore_search?resource_id=1b702208-44bf-4829-b620-4615ee19b57c&limit=81960")
+        .await(callback);
+ }
+ 
+ // Given a crossfilter as the first parameter,
+ // retrieve the minimum and maximum date
+ function getMinAndMaxDate(ndx)
+ {
+       
+    var date_dim = ndx.dimension(function(d){
+        return d.month;
+    });
+    
+    var min_date = date_dim.bottom(1)[0].month;
+    var max_date = date_dim.top(1)[0].month;
+    
+    // return the result as a literal object,
+    // because there is no way to return more than
+    // one variable from a function. So we use
+    // an object to store the possible 
+    return {
+        'min_date' : min_date,
+        'max_date' : max_date
+    }
+ }
 
 function makeGraphs(error, data) {
     var ndx = crossfilter(data.result.records);
@@ -102,6 +131,7 @@ function makeGraphs(error, data) {
     dc.renderAll();
 }
 
+
 $(document).ready(function(){
   $("a").on('click', function(event) {
     if (this.hash !== "") {
@@ -122,5 +152,4 @@ $(document).ready(function(){
   });
 });
 
-
-
+ 
