@@ -1,5 +1,5 @@
 // we create a new function named getData and pass
-// it a callback function. When the queue() finished
+// it a callback function. When the queue() finishes
 // retriving the data, it will trigger our callback function
 // (which is the second parameter of getData() )
  function getData(callback)
@@ -31,6 +31,48 @@
     }
  }
 
+function massageDates(data)
+    {
+        var parseDate = d3.time.format("%Y-%m").parse;
+
+        data.forEach(function(d) {
+        d.month = parseDate(d.month);
+        });
+        
+        return data;
+    }
+    
+function getMinAndMaxDate1(ndx)
+ {
+       
+    var date_dim = ndx.dimension(function(d){
+        return d.lease_commence_date;
+    });
+    
+    var min_date1 = date_dim.bottom(1)[0].lease_commence_date;
+    var max_date1 = date_dim.top(1)[0].lease_commence_date;
+    
+    // return the result as a literal object,
+    // because there is no way to return more than
+    // one variable from a function. So we use
+    // an object to store the possible 
+    return {
+        'min_date1' : min_date1,
+        'max_date1' : max_date1
+    }
+ }
+
+function massageDates1(data)
+    {
+        var parseDate = d3.time.format("%Y").parse;
+
+        data.forEach(function(d) {
+        d.lease_commence_date = parseDate(d.lease_commence_date);
+        });
+        
+        return data;
+    }
+    
 function makeGraphs(error, data) {
     var ndx = crossfilter(data.result.records);
 
