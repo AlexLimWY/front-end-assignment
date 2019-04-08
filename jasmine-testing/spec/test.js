@@ -81,7 +81,7 @@ describe('Draw Scatter Plot', function() {
     describe("Convert 'lease_commence-date' column data to date", function() {
         it("Should not crash on invalid dates", function() {
             let data_6 = [
-                { id:1 , lease_commence_date: '2019-333' }
+                { id:1 , lease_commence_date: '2019-11' }
             ]
             data_6 = massageDates1(data_6);
             expect(data_6[0].lease_commence_date).toBeNull();
