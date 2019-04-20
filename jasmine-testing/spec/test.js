@@ -7,7 +7,7 @@ describe('Draw Line Graph', function() {
             { id: 4, month: '2018-04', town: 'SERANGOON', resale_price: 170000 },
         ]
 
-        it("should get max date and end date", function() {
+        it("should get max date and min date", function() {
             let ndx = crossfilter(data_1);
             let dates = getMinAndMaxDate(ndx);
             expect(dates.min_date).toBe('2018-04');
@@ -58,7 +58,7 @@ describe('Draw Scatter Plot', function() {
             { id: 4, lease_commence_date: '2013', town: 'TAMPINES', resale_price: 260000 },
         ]
 
-        it("should get max date and end date", function() {
+        it("should get max date and min date", function() {
             let ndx = crossfilter(data_5);
             let dates = getMinAndMaxDate1(ndx);
             expect(dates.min_date1).toBe('2013');

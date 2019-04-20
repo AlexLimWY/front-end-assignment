@@ -1,7 +1,6 @@
-// we create a new function named getData and pass
-// it a callback function. When the queue() finishes
-// retriving the data, it will trigger our callback function
-// (which is the second parameter of getData() )
+// A new function named getData is created with a callback function. When the queue() finishes
+// Retrieving the data, it will trigger the callback function.
+
  function getData(callback)
  {
       queue()
@@ -9,8 +8,7 @@
         .await(callback);
  }
  
- // Given a crossfilter as the first parameter,
- // retrieve the minimum and maximum date
+// Retrieving the minimum and maximum date
  function getMinAndMaxDate(ndx)
  {
        
@@ -21,10 +19,9 @@
     var min_date = date_dim.bottom(1)[0].month;
     var max_date = date_dim.top(1)[0].month;
     
-    // return the result as a literal object,
-    // because there is no way to return more than
-    // one variable from a function. So we use
-    // an object to store the possible 
+// Returning the result as a literal object,
+// because we cannot return more than
+// one variable from a function. 
     return {
         'min_date' : min_date,
         'max_date' : max_date
@@ -52,10 +49,9 @@ function getMinAndMaxDate1(ndx)
     var min_date1 = date_dim.bottom(1)[0].lease_commence_date;
     var max_date1 = date_dim.top(1)[0].lease_commence_date;
     
-    // return the result as a literal object,
-    // because there is no way to return more than
-    // one variable from a function. So we use
-    // an object to store the possible 
+// Returning the result as a literal object,
+// because we cannot return more than
+// one variable from a function. 
     return {
         'min_date1' : min_date1,
         'max_date1' : max_date1
@@ -179,7 +175,7 @@ $(document).ready(function(){
     if (this.hash !== "") {
       event.preventDefault();
 
-      // Store hash
+      // Storing hash
       var hash = this.hash;
 
       // Using jQuery's animate() method to add smooth page scroll
@@ -187,7 +183,7 @@ $(document).ready(function(){
         scrollTop: $(hash).offset().top
       }, 800, function(){
    
-        // Add hash (#) to URL when done scrolling (default click behavior)
+        // Adding hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
     } 
