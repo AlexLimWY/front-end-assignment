@@ -2,7 +2,7 @@
 This is a data dashboard of Singapore’s HDB (Housing & Development Board) resale flats. These are flats originally built by the Singapore government.  Singapore HDB flats are a popular topic among Singaporeans because the majority of Singaporeans own and live in HDB flats. Aspiring homeowners also watch the HDB flat prices keenly to determine whether they can afford their ideal HDB flats.
 
 ## Demo
-A live demo can be found [here](https://alwy-user-centric-assignment.herokuapp.com/).
+A live demo can be found [here](https://alwy-front-end-assignment.herokuapp.com/ ).
 ## UX
 My goal in the design was data visualisation. I wanted to present more than 80,000 records of resale flat information in easy-to-digest charts. For reference, all these records are in the ‘resale-flat-prices-based-on-registration-date-from-jan-2015-onwards.csv’ file in the main directory of this ‘front-end-assignment’ Cloud9 workspace.
 4 Charts were used:
@@ -40,7 +40,7 @@ The interactions between the charts were manually tested. For example, clicking 
 
 ## Deployment
 This project was deployed to Heroku.
-A person who wants to run this code locally can clone or download this repository from https://github.com/AlexLimWY/user-centric-assg.git and paste it into their editor terminal.
+A person who wants to run this code locally can clone or download this repository from https://github.com/AlexLimWY/front-end-assignment.git and paste it into their editor terminal.
 
 ## Credits
 ### Content
